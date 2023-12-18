@@ -6,6 +6,7 @@
     "SITE_AUTHOR": "Your Name",
     "SITE_TITLE": "Your Site Title",
     "SITE_DESCRIPTION": "Your Site Description",
+    "project_slug": "{{cookiecutter.title | slugify}}",
     "_content_folder_name": "content",
     "__prompts__": {
         "SITE_AUTHOR": "Author Name",
