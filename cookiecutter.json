@@ -5,7 +5,6 @@
     "output_path": "output",
     "app_filename": "app.py",
     "SITE_TITLE": "Untitled Site",
-    "SITE_DESCRIPTION": "Your Site Description",
     "project_slug": "{{cookiecutter.SITE_TITLE | slugify}}",
     "skip_collection": false,
     "skip_blog": false,
@@ -16,7 +15,7 @@
     },
     "_blog": {
         "name": "Blog",
-        "routes": "./blog",
+        "routes": "blog",
         "content_path": "content/blog"
     },
     "_content_folder_name": "content",
@@ -24,14 +23,18 @@
         "static",
         "content",
         "templates/_base.html",
-        "templates/page.html"
+        "templates/page.html",
+        "templates/archive.html"
     ],
+    "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+    },
     "__prompts__": {
         "SITE_URL": "What is the URL of your site:",
         "SITE_AUTHOR": "What is your Name",
         "SITE_EMAIL": "What is your email address",
         "SITE_TITLE": "The title of your site:",
-        "SITE_DESCRIPTION": "Site Description",
         "collection": "Do you want to have a collection of pages:",
         "blog": "Do you want to have a blog:",
         "app_filename": "What is the name of the main app file:",

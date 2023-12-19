@@ -20,7 +20,6 @@ app.output_path = "{{cookiecutter.output_path}}"
 app.site_vars.update({
     "SITE_TITLE":"{{cookiecutter.SITE_TITLE}}",
     "SITE_URL":"{{cookiecutter.SITE_URL}}",
-    "SITE_DESCRIPTION":"{{cookiecutter.SITE_DESCRIPTION}}",
     "OWNER":{
         "name": "{{cookiecutter.author_name}}",
         "email": "{{cookiecutter.author_email}}",
@@ -29,15 +28,19 @@ app.site_vars.update({
         {
             "name": "Home",
             "url": "/",
-        },{% if not cookiecutter.skip_collection %}
+        },
+        {% if not cookiecutter.skip_collection %}
         {
             "name": "Collection Page",
             "url": "/example-page.html",
-        }{% endif %}{% if not cookiecutter.skip_blog %}
+        },
+        {% endif %}
+        {% if not cookiecutter.skip_blog %}
         {
             "name": "Blog",
             "url": "/blog/blog.html",
-        }{% endif %}
+        },
+        {% endif %}
     ]
     })
 
