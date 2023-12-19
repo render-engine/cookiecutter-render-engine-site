@@ -29,13 +29,15 @@ app.site_vars.update({
         {
             "name": "Home",
             "url": "/",
-        },
-        {% if not cookiecutter.skip_collection %}
+        },{% if not cookiecutter.skip_collection %}
         {
             "name": "Collection Page",
             "url": "/example-page.html",
-        }
-        {% endif %}
+        }{% endif %}{% if not cookiecutter.skip_blog %}
+        {
+            "name": "Blog",
+            "url": "/blog/blog.html",
+        }{% endif %}
     ]
     })
 
