@@ -1,15 +1,13 @@
-{% extends 'base.html' %}
-{%block title %}{{SITE_TITLE}}{% endblock %}
+{% raw %}
+{% extends '_base.html' %}
 {% block content %}
-<h1>{{SITE_TITLE}}</h1>
-<p>{{SITE_DESCRIPTION}}</p>
-
-<p>Site Render_Engine Site Built Successfully</p>
-
-{% if collection %}
-<p>You have also created a collection object</p>
-    <ul>
-
-    </ul>
-{% endif %}
+<div class="container">
+    <h1>{{SITE_TITLE}}</h1>
+    <p>{{SITE_DESCRIPTION}}</p>
+    <p>Site Render_Engine Site Built Successfully</p>
+    {% endraw %}
+    {% include "check_for_collections.html" %}
+    {% raw %}
+</div>
 {% endblock %}
+{% endraw %}

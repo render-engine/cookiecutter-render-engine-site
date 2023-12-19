@@ -2,31 +2,35 @@
 This is a simple app setup script created with `render-engine init`
 """
 
-from render_engine import Site, Page, Collection
+from render_engine import (
+    Site,
+    Page,
+    Collection,
+    {% if not cookiecutter.skip_blog %}
+    Blog
+)
+from render_engine.parsers.markdown import MarkdownPageParser
+{% else %}
+)
+{% endif %}
 
 app = Site()
 app.output_path = "{{cookiecutter.output_path}}"
 
 app.site_vars.update({
-    {% if site_title %}
-    SITE_TITLE:"{{site_title}}",
-    {% endif %}
-    {% if site_url %}
-    SITE_URL:"{{site_url}}",
-    {% endif %}
-    {% if site_description %}
-    SITE_DESCRIPTION:"{{site_description}}",
-    {% endif %}
+    "SITE_TITLE":"{{cookiecutter.SITE_TITLE}}",
+    "SITE_URL":"{{cookiecutter.SITE_URL}}",
+    "SITE_DESCRIPTION":"{{cookiecutter.SITE_DESCRIPTION}}",
     "OWNER":{
-        "name": "{{owner['name']}}",
-        "email": "{{owner['email']}}",
+        "name": "{{cookiecutter.author_name}}",
+        "email": "{{cookiecutter.author_email}}",
     },
     "NAVIGATION":[
         {
             "name": "Home",
             "url": "/",
         },
-        {% if not skip_collection %}
+        {% if not cookiecutter.skip_collection %}
         {
             "name": "Collection Page",
             "url": "/example-page.html",
@@ -39,13 +43,22 @@ app.site_vars.update({
 class Index(Page):
     template = "index.html"
 
-{% if not skip_collection %}
+{% if not cookiecutter.skip_collection %}
 @app.collection
 class Pages(Collection):
-    content_path = "{{collection_path}}" # path to content files
+    content_path = "{{cookiecutter._collection.content_path}}" # path to content files
+    routes = ["{{cookiecutter._collection.routes}}"] # route to collection page
+    template = "page.html"
 {% endif %}
 
-{% if not blog %}
+{% if not cookiecutter.skip_blog %}
+@app.collection
+class Blog(Blog):
+    content_path = "{{cookiecutter._blog.content_path}}" # path to content files
+    routes = ["{{cookiecutter._blog.routes}}"] # route to collection page
+    pageParser = MarkdownPageParser
+    template = "page.html"
+{% endif %}
 
 if __name__ == "__main__":
     app.render()

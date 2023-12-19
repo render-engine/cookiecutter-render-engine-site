@@ -1,16 +1,36 @@
 {
+    "SITE_URL": "http://example.com",
+    "author_name": "Your Name",
+    "author_email": "me@{{cookiecutter.SITE_URL}}",
     "output_path": "output",
     "app_filename": "app.py",
-    "collection": 1,
-    "blog": 1,
-    "SITE_AUTHOR": "Your Name",
-    "SITE_TITLE": "Your Site Title",
+    "SITE_TITLE": "Untitled Site",
     "SITE_DESCRIPTION": "Your Site Description",
     "project_slug": "{{cookiecutter.SITE_TITLE | slugify}}",
+    "skip_collection": false,
+    "skip_blog": false,
+    "_collection": {
+        "name": "Pages",
+        "routes": "./",
+        "content_path": "content/pages"
+    },
+    "_blog": {
+        "name": "Blog",
+        "routes": "./blog",
+        "content_path": "content/blog"
+    },
     "_content_folder_name": "content",
+    "_copy_without_render": [
+        "static",
+        "content",
+        "templates/_base.html",
+        "templates/page.html"
+    ],
     "__prompts__": {
-        "SITE_AUTHOR": "Author Name",
-        "SITE_TITLE": "Site Title",
+        "SITE_URL": "What is the URL of your site:",
+        "SITE_AUTHOR": "What is your Name",
+        "SITE_EMAIL": "What is your email address",
+        "SITE_TITLE": "The title of your site:",
         "SITE_DESCRIPTION": "Site Description",
         "collection": "Do you want to have a collection of pages:",
         "blog": "Do you want to have a blog:",
