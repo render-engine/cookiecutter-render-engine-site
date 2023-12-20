@@ -9,7 +9,7 @@ from render_engine import (
     {% if not cookiecutter.skip_blog %}
     Blog
 )
-from render_engine.parsers.markdown import MarkdownPageParser
+from render_engine_markdown import MarkdownPageParser
 {% else %}
 )
 {% endif %}
