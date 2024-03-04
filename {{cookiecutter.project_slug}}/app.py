@@ -20,10 +20,6 @@ app.output_path = "{{cookiecutter.output_path}}"
 app.site_vars.update({
     "SITE_TITLE":"{{cookiecutter.SITE_TITLE}}",
     "SITE_URL":"{{cookiecutter.SITE_URL}}",
-    "OWNER":{
-        "name": "{{cookiecutter.author_name}}",
-        "email": "{{cookiecutter.author_email}}",
-    },
     "NAVIGATION":[
         {
             "name": "Home",

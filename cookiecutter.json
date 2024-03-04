@@ -1,7 +1,5 @@
 {
     "SITE_URL": "http://example.com",
-    "author_name": "Your Name",
-    "author_email": "me@{{cookiecutter.SITE_URL}}",
     "output_path": "output",
     "app_filename": "app.py",
     "SITE_TITLE": "Untitled Site",
@@ -32,8 +30,6 @@
     },
     "__prompts__": {
         "SITE_URL": "What is the URL of your site:",
-        "SITE_AUTHOR": "What is your Name",
-        "SITE_EMAIL": "What is your email address",
         "SITE_TITLE": "The title of your site:",
         "collection": "Do you want to have a collection of pages:",
         "blog": "Do you want to have a blog:",
