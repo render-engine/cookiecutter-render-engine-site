@@ -17,28 +17,9 @@ from render_engine_markdown import MarkdownPageParser
 app = Site()
 app.output_path = "{{cookiecutter.output_path}}"
 
-app.site_vars.update({
-    "SITE_TITLE":"{{cookiecutter.SITE_TITLE}}",
-    "SITE_URL":"{{cookiecutter.SITE_URL}}",
-    "NAVIGATION":[
-        {
-            "name": "Home",
-            "url": "/",
-        },
-        {% if not cookiecutter.skip_collection %}
-        {
-            "name": "Collection Page",
-            "url": "/example-page.html",
-        },
-        {% endif %}
-        {% if not cookiecutter.skip_blog %}
-        {
-            "name": "Blog",
-            "url": "/blog/blog.html",
-        },
-        {% endif %}
-    ]
-    })
+app.site_vars.update(
+    {% include "site_vars.html" %}
+)
 
 @app.page
 class Index(Page):
