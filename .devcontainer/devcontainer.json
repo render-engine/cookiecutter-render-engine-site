@@ -31,7 +31,8 @@
 				"charliermarsh.ruff",
 				"GitHub.vscode-github-actions",
 				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+                "ms-vscode.makefile-tools"
 			]
         }
     }
