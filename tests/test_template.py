@@ -1,9 +1,5 @@
-""" Test the Cookiecutter template.
-
-A template project is created in a temporary directory, the application is
-installed into a self-contained venv environment, and the application test 
-suite is run.
-
+"""
+Test the Cookiecutter template.
 """
 from cookiecutter.generate import generate_context
 from cookiecutter.main import cookiecutter
@@ -80,8 +76,8 @@ def install_render_engine_cli(python):
 
 
 def test_site_generation(context, project, python, install_render_engine_cli):
-    generate_site = "render-engine build app:app"
-    generate_args = split(generate_site)
+    generate_site = "render_engine build app:app"
+    generate_args = split(f"{python} -m {generate_site}")
     generate_process = run(generate_args, cwd=project)
     assert generate_process.returncode == 0
 
