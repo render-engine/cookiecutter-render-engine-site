@@ -29,8 +29,7 @@
             "extensions": [
 				"ms-python.python",
 				"charliermarsh.ruff",
-				"github.github-actions",
-				"github.github",
+				"GitHub.vscode-github-actions",
 				"yzhang.markdown-all-in-one",
 				"DavidAnson.vscode-markdownlint"
 			]
