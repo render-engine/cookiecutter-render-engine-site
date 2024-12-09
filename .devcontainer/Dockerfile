@@ -1,4 +1,4 @@
-ARG IMAGE="python:3.12"
+ARG IMAGE="python:3.13"
 FROM --platform=amd64 mcr.microsoft.com/vscode/devcontainers/${IMAGE}
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
