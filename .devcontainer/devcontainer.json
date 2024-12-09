@@ -7,7 +7,7 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "IMAGE": "python:3.13"
+            "IMAGE": "python:3.12"
         }
     },
     "postCreateCommand": ". .devcontainer/setup.sh",
