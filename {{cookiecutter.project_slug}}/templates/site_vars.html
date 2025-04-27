@@ -1,0 +1,22 @@
+{
+    "SITE_TITLE":"{{cookiecutter.SITE_TITLE}}",
+    "SITE_URL":"{{cookiecutter.SITE_URL}}",
+    "NAVIGATION":[
+        {
+            "name": "Home",
+            "url": "/",
+        },
+        {% if not cookiecutter.skip_collection %}
+        {
+            "name": "Collection Page",
+            "url": "/example-page.html",
+        },
+        {% endif %}
+        {% if not cookiecutter.skip_blog %}
+        {
+            "name": "Blog",
+            "url": "/blog/blog.html",
+        },
+        {% endif %}
+    ]
+}
