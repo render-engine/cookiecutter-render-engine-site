@@ -1,0 +1,8 @@
+[render-engine.cli]
+site = "app"
+module = "app"
+{% if not cookiecutter.skip_blog %}
+collection = "blog"
+{% elif not cookiecutter.skip_collection %}
+collection = "pages"
+{% endif %}
