@@ -74,9 +74,9 @@ def install_render_engine_cli(python):
     install_process = run(install_args)
     assert install_process.returncode == 0
 
-
-def test_site_generation(context, project, python, install_render_engine_cli):
-    generate_site = "render_engine build app:app"
+@pytest.mark.parametrize('args', [' --module-site app:app', ''])
+def test_site_generation(context, project, python, install_render_engine_cli, args):
+    generate_site = f"render_engine build{args}"
     generate_args = split(f"{python} -m {generate_site}")
     generate_process = run(generate_args, cwd=project)
     assert generate_process.returncode == 0
