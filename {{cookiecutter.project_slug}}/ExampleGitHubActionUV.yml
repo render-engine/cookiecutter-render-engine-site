@@ -1,0 +1,29 @@
+name: Build  # Workflow name - this is what will appear in the "Actions" tab of the repo and the "checks" section of the PR
+# To use this action you can copy this over to .github/workflows and GitHub will automatically recognize it and run when you push a change.
+# This workflow is for the case where you are using uv.
+
+on: # Define the triggers that will cause the workflow to run
+  push:
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest # This is the VM type that will run it.
+    steps: # The actions that define the workflow
+      - uses: actions/checkout@v4 # Check out the repo
+      - name: Install Python
+        uses: actions/setup-python@v5 # Install Python
+        with:
+          python-version: "3.13" # Define the version of Python that is needed
+      - name: Install dependencies
+        run: | # Tasks to run. First update pip, then install uv. 
+          python -m pip install --upgrade pip  
+          pip install uv
+      - name: Build the site
+        run: uv run render-engine build # Render your site. Calling uv run will handle all the necessary requirements.
+      - uses: actions/upload-artifact@v4 # Upload (and therefor preserve) the rendered site.
+        with:
+          name: website
+          path: ./output # If you are using the default output directory this is fine, otherwise change it to the directory you are using.
